@@ -1,126 +1,122 @@
-<div align="center">
+<h1>⚡ RevMax: AI Dynamic Pricing Engine</h1>
 
-⚡ RevMax: AI Dynamic Pricing Engine
+<h2>Revenue Optimization for E-Commerce</h2>
+<p>A Deep Learning approach to finding the perfect price point.</p>
 
-Revenue Optimization for E-Commerce > A Deep Learning approach to finding the perfect price point.
+<h2>📑 Table of Contents</h2>
+<ul>
+  <li>Project Overview</li>
+  <li>Target Use Case</li>
+  <li>Architecture</li>
+  <li>Installation & Setup</li>
+  <li>How to Run</li>
+  <li>Project Structure</li>
+  <li>Features</li>
+</ul>
 
-</div>
+<h2>📖 Project Overview</h2>
+<p>
+RevMax is an intelligent pricing agent designed for mid-range e-commerce products.
+It utilizes a neural network to analyze market conditions (competitor pricing, day of the week, seasonality)
+and predicts the optimal price point to maximize revenue.
+</p>
 
-📑 Table of Contents
+<p>
+Unlike simple rule-based systems (e.g., "always be $1 cheaper"), RevMax understands price elasticity.
+It knows when to undercut competitors to drive volume and when to hold price to maximize margins.
+</p>
 
-Project Overview
+<h2>🎯 Target Use Case</h2>
 
-Architecture
+<h3>Product Category</h3>
+<p>Mid-range consumer electronics, fashion, or home goods.</p>
 
-Installation & Setup
+<h3>Price Band</h3>
+<p>$40.00 – $60.00.</p>
 
-How to Run
+<h3>Market Dynamic</h3>
+<p>Highly competitive environments where a $0.50 difference can significantly impact sales velocity.</p>
 
-Project Structure
+<h2>🏗️ Architecture</h2>
+<p>The system consists of three distinct components:</p>
 
-Features
+<h3>The Brain (PyTorch)</h3>
+<p>A feed-forward neural network trained on historical sales data to predict demand curves.</p>
 
-📖 Project Overview
+<h3>The Engine (FastAPI)</h3>
+<p>A high-performance REST API that serves predictions and runs the optimization algorithms.</p>
 
-RevMax is an intelligent pricing agent designed for mid-range e-commerce products. It utilizes a neural network to analyze market conditions (competitor pricing, day of the week, seasonality) and predicts the optimal price point to maximize revenue.
+<h3>The Control Center (Streamlit)</h3>
+<p>An executive dashboard for visualizing real-time revenue curves and strategy insights.</p>
 
-Unlike simple rule-based systems (e.g., "always be $1 cheaper"), RevMax understands price elasticity. It knows when to undercut competitors to drive volume and when to hold price to maximize margins.
+<h2>🛠️ Installation & Setup</h2>
 
-🎯 Target Use Case
+<h3>Prerequisites</h3>
+<ul>
+  <li>Python 3.8 or higher installed.</li>
+</ul>
 
-This software is specifically tuned for:
-
-Product Category: Mid-range consumer electronics, fashion, or home goods.
-
-Price Band: $40.00 – $60.00.
-
-Market Dynamic: Highly competitive environments where a $0.50 difference can significantly impact sales velocity.
-
-🏗️ Architecture
-
-The system consists of three distinct components:
-
-The Brain (PyTorch): A feed-forward neural network trained on historical sales data to predict demand curves.
-
-The Engine (FastAPI): A high-performance REST API that serves predictions and runs the optimization algorithms.
-
-The Control Center (Streamlit): An executive dashboard for visualizing real-time revenue curves and strategy insights.
-
-🛠️ Installation & Setup
-
-Prerequisites
-
-Python 3.8 or higher installed.
-
-1. Clone the Repository
-
-git clone [https://github.com/yourusername/revmax-pricing.git](https://github.com/yourusername/revmax-pricing.git)
+<h3>1. Clone the Repository</h3>
+<pre><code>git clone https://github.com/yourusername/revmax-pricing.git
 cd revmax-pricing
+</code></pre>
 
+<h3>2. Create a Virtual Environment</h3>
+<p>It is highly recommended to use a virtual environment to manage dependencies.</p>
 
-2. Create a Virtual Environment
-
-It is highly recommended to use a virtual environment to manage dependencies.
-
-# Windows
+<pre><code># Windows
 python -m venv venv
 .\venv\Scripts\activate
 
 # Mac/Linux
 python3 -m venv venv
 source venv/bin/activate
+</code></pre>
 
+<h3>3. Install Dependencies</h3>
+<pre><code>pip install -r requirements.txt
+</code></pre>
 
-3. Install Dependencies
-
-pip install -r requirements.txt
-
-
+<p>
 (Note: Ensure you have pandas, numpy, torch, fastapi, uvicorn, streamlit, plotly, requests, and scikit-learn installed).
+</p>
 
-🚀 How to Run
+<h2>🚀 How to Run</h2>
+<p>This project runs in three stages. You must run them in order for the first time.</p>
 
-This project runs in three stages. You must run them in order for the first time.
+<h3>Step 1: Data Engineering</h3>
+<p>Generate the synthetic dataset that simulates the market logic.</p>
 
-Step 1: Data Engineering
+<pre><code>python data_setup.py
+</code></pre>
+<p><strong>Output:</strong> Creates sales_data.csv</p>
 
-Generate the synthetic dataset that simulates the market logic.
+<h3>Step 2: Model Training</h3>
+<p>Train the neural network on the generated data.</p>
 
-python data_setup.py
+<pre><code>python train_model.py
+</code></pre>
+<p><strong>Output:</strong> Creates pricing_model.pth (weights) and scaler.save (normalization logic).</p>
 
+<h3>Step 3: Launch the Backend (API)</h3>
+<p>Start the FastAPI server. Keep this terminal window OPEN.</p>
 
-Output: Creates sales_data.csv
+<pre><code>uvicorn api:app --reload
+</code></pre>
 
-Step 2: Model Training
+<p>Access API Docs at: http://127.0.0.1:8000/docs</p>
 
-Train the neural network on the generated data.
+<h3>Step 4: Launch the Frontend (Dashboard)</h3>
+<p>Open a new terminal, activate your virtual environment, and run:</p>
 
-python train_model.py
+<pre><code>streamlit run dashboard.py
+</code></pre>
 
+<p>The dashboard will automatically open in your web browser.</p>
 
-Output: Creates pricing_model.pth (weights) and scaler.save (normalization logic).
+<h2>📂 Project Structure</h2>
 
-Step 3: Launch the Backend (API)
-
-Start the FastAPI server. Keep this terminal window OPEN.
-
-uvicorn api:app --reload
-
-
-Access API Docs at: https://www.google.com/search?q=http://127.0.0.1:8000/docs
-
-Step 4: Launch the Frontend (Dashboard)
-
-Open a new terminal, activate your virtual environment, and run:
-
-streamlit run dashboard.py
-
-
-The dashboard will automatically open in your web browser.
-
-📂 Project Structure
-
-revmax-pricing/
+<pre><code>revmax-pricing/
 │
 ├── api.py             # FastAPI server (The Deployment)
 ├── dashboard.py       # Streamlit Dashboard (The Frontend)
@@ -131,14 +127,12 @@ revmax-pricing/
 ├── sales_data.csv     # (Generated) Synthetic training data
 ├── pricing_model.pth  # (Generated) Saved model weights
 └── scaler.save        # (Generated) Saved data scaler
+</code></pre>
 
-
-📈 Features
-
-Real-time Optimization: Suggests prices based on live competitor inputs.
-
-Revenue Curve Visualization: See exactly how price changes affect projected revenue.
-
-Strategic Insights: Explains why a price was chosen (e.g., "undercutting market median").
-
-Docker Ready: (Optional) Can be easily containerized for cloud deployment.
+<h2>📈 Features</h2>
+<ul>
+  <li><strong>Real-time Optimization:</strong> Suggests prices based on live competitor inputs.</li>
+  <li><strong>Revenue Curve Visualization:</strong> See exactly how price changes affect projected revenue.</li>
+  <li><strong>Strategic Insights:</strong> Explains why a price was chosen (e.g., "undercutting market median").</li>
+  <li><strong>Docker Ready:</strong> (Optional) Can be easily containerized for cloud deployment.</li>
+</ul>
